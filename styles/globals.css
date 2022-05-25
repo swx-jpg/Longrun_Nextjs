@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.alice-carousel__dots {
+    position: absolute;
+    top: 45%;
+    right: 0px;
+    display: inline-grid;
+}
+
+.alice-carousel__dots-item{
+    margin-top: 10px;
+}
+
+.alice-carousel__stage-item {
+    max-width: 100%;
+    max-height: 800px;
+}
+
+.alice-carousel__stage-item img {
+   width: fit-content;
+   height: fit-content;
+}
+
+.a_btn{
+    font-size: 21px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 80px;
+    letter-spacing: 1px;
+    fill: #fff;
+    color: #fff;
+    background-color: #00ad8e;
+    border-radius: 72px;
+    padding: 25px 70px;
+}
+
+.studio_background{
+    background-image: url(https://demo.sonaar.io/studio-elementor/wp-content/uploads/sites/34/2018/12/studio-bg_01.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.width_fit{
+    width: fit-content;
+    border-bottom: solid;
+    border-width: 0 0 7px;
+    margin-bottom: 35px;
+}
+
+.featuredWorks:hover{
+   filter:blur(2px) brightness(80%);
+   transition: .25s ease-out;
+}
+
+
+.featuredWorks:hover .featuredWorks_bottomtext{
+    display: none !important;
+}
+
+.featuredWorks_bottomtext a svg{
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0 4px;
+    color: #fff ;
+}
+
+.featuredWorks_uppertext{
+    z-index: 2;
+    position: absolute;
+    bottom: 310px;
+    display: none;
+}
+
+.featuredWorks_bottomtext{
+    display: none;
+    position: absolute;
+    bottom: 50px;
+}
+
+.featuredWorksDiv:hover .featuredWorks_uppertext {
+    bottom: 240px !important;
+    display: block !important;
+    transition: 1s ease-out;
+}
+
+.featuredWorksDiv:hover .featuredWorks_bottomtext {
+    bottom: 90px !important;
+    display: inline-flex !important;
+    transition: 1s ease-out;
+}
