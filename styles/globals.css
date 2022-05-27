@@ -50,15 +50,7 @@
     margin-bottom: 35px;
 }
 
-.featuredWorks:hover{
-   filter:blur(2px) brightness(80%);
-   transition: .25s ease-out;
-}
 
-
-.featuredWorks:hover .featuredWorks_bottomtext{
-    display: none !important;
-}
 
 .featuredWorks_bottomtext a svg{
     height: 1.5em;
@@ -66,8 +58,11 @@
     margin: 0 4px;
     color: #fff ;
 }
+.leading-20{
+    line-height: 5rem !important;
+}
 
-.featuredWorks_uppertext{
+/* .featuredWorks_uppertext{
     z-index: 2;
     position: absolute;
     bottom: 310px;
@@ -90,4 +85,120 @@
     bottom: 90px !important;
     display: inline-flex !important;
     transition: 1s ease-out;
+} */
+
+
+.featuredWorks_bottomtext{
+    display: inline-flex;
+    position: absolute;
+    bottom: -25px;
+    opacity: 0%;
+}
+
+@media (min-width: 1281px) and ( max-width: 1920px){
+    
+}
+@media (min-width: 1025px) and ( max-width: 1280px){
+    
+   
+
+    
+}
+@media (min-width: 769px) and ( max-width: 1024px){
+    
+}
+@media ( max-width: 768px){
+    
+}
+@media (max-width:500px) {
+    .featuredWorksDiv{
+        width:100% !important;
+    }
+}
+@media (max-width: 768px) and (min-width: 501px) {
+    .featuredWorksDiv{
+        width:50% !important;
+    }
+    
+}
+
+@media only screen 
+and (max-device-width: 600px)
+ { 
+    .featuredWorksDiv{
+        width:100% !important;
+    }
+    
+ }
+
+.featuredWorksDiv:hover .featuredWorks{
+    filter:blur(2px) brightness(80%);
+    transition: .25s ease-out;
+ }
+ 
+ /* .featuredWorks:hover .featuredWorks_bottomtext{
+     display: none !important;
+ } */
+ .featuredWorksDiv:hover .featuredWorks_uppertext {
+    top: 10px !important;
+    display: block !important;
+    transition: .5s ease-out;
+    opacity: 100% !important;
+}
+ footer a svg{
+    height: 2em;
+    width: 2em;
+    margin: 0 12px;
+    color: #fff ;
+    display: inline-block;
+}
+.featuredWorksDiv {
+    position: relative;
+}
+
+.featuredWorksDiv:hover .featuredWorks_bottomtext {
+    bottom: 10px !important;
+    transition: .5s ease-out;
+    opacity: 100% !important;
+
+}
+
+
+/* .featuredWorksDiv:hover .featuredWorks_uppertext  {
+    transition: .7s ease-out !important;
+    bottom: 190px !important;
+    opacity: 100% !important;
+} */
+
+.featuredWorks_uppertext{
+    z-index: 2;
+    position: absolute;
+    top: -70px;
+    opacity: 0%;
+    
+}
+.centerTextOverImage{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.divCards img{
+    filter: blur(0px);
+}
+
+.divCards:hover img{
+    filter: blur(1px) !important;
+    transition: .25s ease-out;
+}
+.divCards h5{
+    margin-top: 10px;
+}
+.divCards:hover h5{
+    margin-top: 0px !important;
+    transition: .25s ease-out;
+}
+.topOverSlider{
+    margin-top: -6em;
 }

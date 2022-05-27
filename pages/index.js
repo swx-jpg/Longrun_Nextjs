@@ -22,9 +22,9 @@ import "react-alice-carousel/lib/alice-carousel.css";
 
 
 const imagesCarousel = [
-  { url: "./img/Slider/Ficheiro_1.jpg" },
-  { url: "./img/Slider/Ficheiro_2.jpg" },
-  { url: "./img/Slider/Ficheiro_3.jpg" },
+  { url: "./img/Slider/Ficheiro_1.jpg", title:"Title 1", subText:"jkadhhjkdgh ajdhajk jajjdh ahh kasjlk ncmhjka", btnText:"Text on the button", btnUrl:"#" },
+  { url: "./img/Slider/Ficheiro_2.jpg", title:"Title 2", subText:"jkadhhjkdgh ajdhajk jajjdh ahh kasjlk ncmhjka", btnText:"Text on the button", btnUrl:"#" },
+  { url: "./img/Slider/Ficheiro_3.jpg", title:"Title 3", subText:"jkadhhjkdgh ajdhajk jajjdh ahh kasjlk ncmhjka", btnText:"Text on the button", btnUrl:"#"}
 
 ];
 const cardsConst = [
@@ -69,6 +69,7 @@ const featuredWorks = [
    ArtistInsta:"htttps://www.instagram.com/ricardoventuras"}
 ];
 
+
 const options = {
   items: 1,
   nav: true,
@@ -84,57 +85,70 @@ export default function Index() {
       <IndexNavbar fixed />
 
       <AliceCarousel autoPlay autoPlayInterval="1500" autoHeight="true" touchTracking="true" disableButtonsControls="true" className="classAliceCarousel">
-        {imagesCarousel.map((e, key) => <img key={key} src={e.url} alt="image_{e.url}"></img>)}
+        {imagesCarousel.map((e, key) => 
+        
+        
+        <div key={key} className=" w-full md:w-full flex justify-center">
+          <img key={key} src={e.url} alt="image_{e.url}"/>
+            <div key={key} className="w-1/2 sm:w-full mb-2 text-center centerTextOverImage">
+              <h2 key={key} className=" mx-auto text-4xl text-white border-solid border-b-6 pb-4 font-bold text-center px-6 leading-4"> 
+                {e.title.toUpperCase()} 
+              </h2>
+              <p key={key} className="text-xl text-white px-6 leading-4 mb-6">
+                {e.subText}
+              </p>
+              <a key={key} href={e.btnUrl} className="a_btn leading-20">{e.btnText}</a>
+            </div>
+          </div>
+        
+        )}
       </ AliceCarousel>
       {/* <img className="content_cima_slider absolute w-1/12 h-1/12 object-cover " alt="preenchimento" src="./img/brand/hero-dot.png"/> */}
 
-      <div className="w-full md:w-full px-6">
-        <div className="flex flex-wrap justify-center">
-          
-          {cardsConst.map((e, key) => <div className="w-1/3 md:w-1/3 px-4">
-            <div key={key} className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-              <a href={e.url}>
-                <img className="rounded-t-lg" src={e.urlImage} alt={e.alt} />
+      <div className="w-full  md:w-full flex px-6  bg-black">
+        {/* <div className="flex flex-wrap justify-center text-center "> */}
+          {cardsConst.map((e, key) => 
+          <div key={key} className="w-1/3  px-4 relative divCards">
+            <div key={key} className="max-w-sm   shadow-md ">
+              <a  key={key} href={e.url}>
+                <img key={key}  src={e.urlImage} alt={e.alt} />
               </a>
-              <a href={e.url} className="justify-center">
-                <h5 className="mb-2 absolute  text-2xl font-bold tracking-tight text-gray-900 dark:text-white ">{e.text}</h5>
+              <a  key={key} href={e.url} className="justify-center">
+                <h5 key={key} className="mb-2 p-2  bg-black  border centerTextOverImage text-2xl font-bold tracking-tight text-white dark:text-white ">{e.text}</h5>
               </a>
-              <div className="p-5">
-              </div>
             </div>
           </div>)}
-         
-        </div>
+        {/* </div> */}
       </div>
 
 
-      <section className="mt-5 md:mt-5 pb-20 pt-20 relative bg-black">
-        <div className="container mx-auto ">
+      <section className="pb-20 pt-20 relative bg-black">
+        {/* <div className="container mx-auto "> */}
         {welcomeTo.map((e, key)=> 
-          <div  className=" w-full md:w-full flex justify-center px-6">
-            <div className=" mb-2 ">
-              <h2 key={key} className="text-6xl text-white font-bold text-right px-6 leading-4"> WELCOME <br/> TO OUR <br/> STUDIO  </h2>
+          <div key={key}  className=" w-full md:w-full flex  justify-center px-6">
+            <div  key={key} className=" mb-2 w-1/2 sm:w-full">
+              <h2 key={key} className="text-6xl  text-white font-bold text-right px-6 leading-4"> WELCOME <br/> TO OUR <br/> STUDIO  </h2>
             </div>
-            <div className=" flex mb-2 items-center">
+            <div key={key} className=" w-1/2 sm:w-full  justify-center px-mb-2 align-self-center ">
               <p key={key} className="text-xl text-white px-6 leading-4">{e.textContent}</p>
             </div>
           </div>
         )}
-        </div>
+        {/* </div> */}
       </section>
 
       <section className=" pb-20 pt-20 relative bg-white studio_background">
         <div className="container mx-auto ">
         {studios.map((e, key)=> 
-          <div  className=" w-full md:w-full flex justify-center px-6">
-            <div className="w-full md:w-full mb-2 text-center">
+          <div  key={key} className=" w-full md:w-full flex justify-center px-6">
+            <div key={key} className="w-1/2 sm:w-full mb-2 text-center">
               <h2 key={key} className=" width_fit mx-auto text-4xl text-white border-solid border-b-6 pb-2 font-bold text-center px-6 leading-4"> 
                 {e.heading.toUpperCase()} 
               </h2>
               <p key={key} className="text-xl text-white px-6 leading-4 mb-6">
                 {e.textContent}
               </p>
-              <a href={e.btnUrl} className="a_btn">{e.btnText}</a>
+              <a key={key} href={e.btnUrl} className="a_btn">{e.btnText}</a>
             </div>
           </div>
         )}
@@ -152,7 +166,7 @@ export default function Index() {
         <div  className=" w-full md:w-full flex justify-center px-6">
           <div className="w-full md:w-full flex flex-wrap justify-left">
             {workingArtists.map((e, key)=> 
-              <div key={key} className="w-1/3 md:w-1/3 text-left mb-2 ">
+              <div  key={key} className="w-1/3 md:w-1/3 text-left mb-2 ">
                 <p key={key} className="text-white">{e.artistName}</p>
               </div>
             )}
@@ -173,17 +187,17 @@ export default function Index() {
         <div  className=" w-full md:w-full flex justify-center px-6">
           <div className="w-full md:w-full flex flex-wrap justify-left">
             {featuredWorks.map((e, key)=> 
-              <div key={key} className="w-1/3 md:w-1/3 text-left mb-2 mx-auto featuredWorksDiv ">
-                <div className="featuredWorks_uppertext p-2">
-                  <h2 className="text-white"> {e.songName} </h2>
-                  <h4 className="text-white"> por {e.artistName} </h4>
-                  <h4 className="text-white">{e.year}</h4>
+              <div  key={key} className="w-1/3 md:w-1/3  text-left  mb-2 featuredWorksDiv ">
+                <div key={key} className="featuredWorks_uppertext p-2">
+                  <h2 key={key} className="text-white"> {e.songName} </h2>
+                  <h4 key={key} className="text-white"> por {e.artistName} </h4>
+                  <h4 key={key} className="text-white">{e.year}</h4>
                 </div>
-               <img className="p-2 featuredWorks" src={e.urlImage} alt={e.artistName + e.songName} />
-                <div className="featuredWorks_bottomtext p-2">
-                  <a href={e.YoutubeLink}><FaYoutube /></a>
-                  <a href={e.SpotifyLink}><FaSpotify /></a>
-                  <a href={e.ArtistInsta}><FaInstagram /></a>
+               <img key={key} className="p-2 featuredWorks" src={e.urlImage} alt={e.artistName + e.songName} />
+                <div key={key} className="featuredWorks_bottomtext p-2">
+                  <a key={key} href={e.YoutubeLink}><FaYoutube /></a>
+                  <a key={key} href={e.SpotifyLink}><FaSpotify /></a>
+                  <a key={key} href={e.ArtistInsta}><FaInstagram /></a>
                 </div>
               </div>
             )}
