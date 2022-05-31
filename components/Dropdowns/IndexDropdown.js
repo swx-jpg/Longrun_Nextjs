@@ -18,8 +18,9 @@ const IndexDropdown = () => {
   };
   return (
     <>
-      <a
-        className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+      <a data-tf-popup="V1X1ud9P" className="aTypeForm hover:text-white text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" data-tf-iframe-props="title=Booking Form Template (Longrun)" data-tf-medium="snippet" >Contacte-nos</a><script src="//embed.typeform.com/next/embed.js"></script>
+      {/* <a
+        className="hover:text-white text-white px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
         href="#pablo"
         ref={btnDropdownRef}
         onClick={(e) => {
@@ -33,12 +34,12 @@ const IndexDropdown = () => {
         ref={popoverDropdownRef}
         className={
           (dropdownPopoverShow ? "block " : "hidden ") +
-          "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
+          "bg-black text-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
         }
       >
         <span
           className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-white"
           }
         >
           Admin Layout
@@ -47,7 +48,7 @@ const IndexDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
             }
           >
             Dashboard
@@ -57,7 +58,7 @@ const IndexDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
             }
           >
             Settings
@@ -67,7 +68,7 @@ const IndexDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
             }
           >
             Tables
@@ -77,7 +78,7 @@ const IndexDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
             }
           >
             Maps
@@ -86,7 +87,7 @@ const IndexDropdown = () => {
         <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
         <span
           className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-white"
           }
         >
           Auth Layout
@@ -95,7 +96,7 @@ const IndexDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
             }
           >
             Login
@@ -105,7 +106,7 @@ const IndexDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
             }
           >
             Register
@@ -114,7 +115,7 @@ const IndexDropdown = () => {
         <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
         <span
           className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-white"
           }
         >
           No Layout
@@ -123,7 +124,7 @@ const IndexDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
             }
           >
             Landing
@@ -133,13 +134,13 @@ const IndexDropdown = () => {
           <a
             href="#pablo"
             className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-white"
             }
           >
             Profile
           </a>
         </Link>
-      </div>
+      </div> */}
     </>
   );
 };

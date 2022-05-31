@@ -26,24 +26,29 @@ export default function Footer() {
         </div>
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap text-center lg:text-left">
-            <div className="w-full lg:w-6/12 px-4">
-              <h4 className="text-3xl font-semibold text-white">Vamos falar sobre o seu projeto!</h4>
-              <h5 className="text-lg mt-0 mb-2 text-white">
+            <div className="w-full  px-4 text-center">
+              <h4 className="text-3xl font-semibold text-white">Vamos falar sobre o seu projeto!</h4>    
+
+
+              <h5 className="text-lg mt-0 mb-2 text-white px-4">
                 Encontre-nos em qualquer destas plataformas, nós respondemos em 1-2 dias úteis.
               </h5>
-              <div className="mt-6 lg:mb-0 mb-6">
+              <div className="mt-6 lg:mb-0 mb-6 inline-flex ">
                
                 <a href="#"><FaRegEnvelope /></a>
                 <a href="#"><FaYoutube /></a>
                 <a href="#"><FaSpotify /></a>
                 <a href="#"><FaInstagram /></a>
+                <p className="text-white font-bold mx-10px pt-10px">ou</p>
+                <a data-tf-popup="V1X1ud9P" className="aTypeFormFooter text-3xl  font-semibold text-white" data-tf-iframe-props="title=Booking Form Template (Longrun)" data-tf-medium="snippet" >Clique aqui</a><script src="//embed.typeform.com/next/embed.js"></script>
+
               </div>
             </div>
             
           </div>
-          <hr className="my-6 border-blueGray-300" />
+          <hr className="my-6 border-white" />
           <div className="flex flex-wrap items-center md:justify-between justify-center">
-            <div className="w-full md:w-4/12 px-4 mx-auto text-center">
+            <div className="w-full  px-4 mx-auto text-center">
               <div className="text-sm text-white font-semibold py-1">
                 Copyright © {new Date().getFullYear()} Longrun Music by{" "}
                 <a
