@@ -276,4 +276,6 @@ footer a svg {
     color: #fff;
     text-decoration: underline;
     cursor: pointer;
+    line-height: 25px;
+    margin-left: 15px;
 }

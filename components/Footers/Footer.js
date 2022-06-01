@@ -35,10 +35,10 @@ export default function Footer() {
               </h5>
               <div className="mt-6 lg:mb-0 mb-6 inline-flex ">
                
-                <a href="#"><FaRegEnvelope /></a>
-                <a href="#"><FaYoutube /></a>
-                <a href="#"><FaSpotify /></a>
-                <a href="#"><FaInstagram /></a>
+                <a href="mailto:longrunmusicrec@gmail.com"><FaRegEnvelope /></a>
+                <a href="https://www.youtube.com/channel/UCW0pMfYwk116gM9oYtHty2Q"><FaYoutube /></a>
+                <a href="https://open.spotify.com/user/31f7zklukv6vnmejbyyeeellrzba?si=c9175162fb9047b9"><FaSpotify /></a>
+                <a href="https://www.instagram.com/longrunmusic/"><FaInstagram /></a>
                 <p className="text-white font-bold mx-10px pt-10px">ou</p>
                 <a data-tf-popup="V1X1ud9P" className="aTypeFormFooter text-3xl  font-semibold text-white" data-tf-iframe-props="title=Booking Form Template (Longrun)" data-tf-medium="snippet" >Clique aqui</a><script src="//embed.typeform.com/next/embed.js"></script>
 

@@ -3625,6 +3625,9 @@ select {
 .z-10 {
   z-index: 10;
 }
+.z-20 {
+  z-index: 20;
+}
 
 .z-40 {
   z-index: 40;

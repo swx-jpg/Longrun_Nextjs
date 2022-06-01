@@ -11,6 +11,10 @@ import { FaInstagram, FaYoutube, FaSpotify } from 'react-icons/fa';
 
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
+
+import { motion, useViewportScroll, useAnimation } from "framer-motion"
+import {useInView} from 'react-intersection-observer';
+
 import { doc } from "prettier";
 
 
@@ -23,58 +27,56 @@ import { doc } from "prettier";
 
 
 const imagesCarousel = [
-  { url: "./img/Slider/Ficheiro_1.jpg", title: "Title 1", subText: "jkadhhjkdgh ajdhajk jajjdh ahh kasjlk ncmhjka", btnText: "Text on the button", btnUrl: "#" },
-  { url: "./img/Slider/Ficheiro_2.jpg", title: "Title 2", subText: "jkadhhjkdgh ajdhajk jajjdh ahh kasjlk ncmhjka", btnText: "Text on the button", btnUrl: "#" },
-  { url: "./img/Slider/Ficheiro_3.jpg", title: "Title 3", subText: "jkadhhjkdgh ajdhajk jajjdh ahh kasjlk ncmhjka", btnText: "Text on the button", btnUrl: "#" }
+  { key: 2, url: "./img/Slider/Ficheiro_2.jpg", title: "Transformamos as tuas ideias em realidade", subText: "Fala connosco.", btnText: "Contacte-nos", btnUrl: "#" },
+  { key: 3, url: "./img/Slider/Ficheiro_3.jpg", title: "Transformamos as tuas ideias em realidade", subText: "Fala connosco.", btnText: "Contacte-nos", btnUrl: "#" }
 
 ];
 const cardsConst = [
-  { urlImage: "./img/Slider/Ficheiro_1.jpg", alt: "Image 1", url: "#", text: "Recording" },
-  { urlImage: "./img/Slider/Ficheiro_2.jpg", alt: "Image 2", url: "#", text: "Mixing" },
-  { urlImage: "./img/Slider/Ficheiro_3.jpg", alt: "Image 3", url: "#", text: "Mastering" }
+  { key: 1, urlImage: "./img/Slider/Ficheiro_3.jpg", alt: "Image 1", url: "#", text: "Gravação", animation: 'animation' },
+  { key: 2, urlImage: "./img/Slider/Ficheiro_2.jpg", alt: "Image 2", url: "#", text: "Mixing/Mastering", animation: 'animationReverse' },
+  { key: 3, urlImage: "./img/Slider/Ficheiro_1.jpg", alt: "Image 3", url: "#", text: "Vídeo", animation: 'animationReverse'  }
 ];
 const welcomeTo = [
-  { title: "Welcome" + <br /> + "to our" + <br /> + "studio", textContent: "We are a recording studio located in New York City. We cover everything from epic original tracks to talent management, licensing, sound recording and design." }
+  { key: 1, title: "Welcome" + <br /> + "to our" + <br /> + "studio", textContent: "Somos um estúdio de gravação situado em Torres Vedras, Portugal. A nossa promessa é cobrir desde gravação de áudio, a gestão de artistas e planeamento e gravação de vídeo." }
 ];
 
 const workingArtists = [
-  { artistName: "Ricko Sicko" },
-  { artistName: "Raptil" },
-  { artistName: "Ricko Sicko" },
-  { artistName: "Raptil" }
+  { key: 1, artistName: "Ricko Sicko" },
+  { key: 2, artistName: "Raptil" }
 
 ];
 
 const studios = [
 
   {
-    urlImage: "./img/Studio/Ficheiro_1.jpg", alt: "Image Studio A", heading: "Studio A",
-    textContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pretium, neque at mattis volutpat, enim diam ultricies est, at egestas elit lacus at tellus. Mauris feugiat non tortor vel fermentum. Fusce arcu neque, tincidunt quis magna eget, convallis volutpat ligula.",
+    key: 1, urlImage: "./img/Studio/Ficheiro_1.jpg", alt: "Image Studio A", heading: "Estúdio A",
+    textContent: "Este estúdio tem equipamento de gravação, colunas monitoras, cabine de gravação e isolamento, para que possa ter uma experiência de captação de áudio agradável.",
     btnText: "Contacte-nos"
   }
 
 ];
 
 const featuredWorks = [
+  //image resolution 1300x1300 ou 3000x3000
   {
-    urlImage: "./img/Works/artwork_lowkey.jpg", artistName: "Ricko Sicko", songName: "LOWKEY", year: "2022",
+    key: 1, urlImage: "./img/Works/artwork_lowkey.jpg", artistName: "Ricko Sicko", songName: "LOWKEY", year: "2022",
     YoutubeLink: "https://www.youtube.com/watch?v=FKZThNEChyo",
     SpotifyLink: "https://open.spotify.com/track/2T3c9GztOwjOgo5io1qyVZ?si=7ca31d7b3f8a4cb0",
-    ArtistInsta: "htttps://www.instagram.com/ricardoventuras"
+    ArtistInsta: "https://www.instagram.com/ricardoventuras/"
   },
 
   {
-    urlImage: "./img/Works/artwork_pensamentoClean.png", artistName: "Raptil", songName: "Pensamento Clean", year: "2022",
-    YoutubeLink: "https://www.youtube.com/watch?v=FKZThNEChyo",
+    key: 2, urlImage: "./img/Works/artwork_pensamentoClean.png", artistName: "Raptil", songName: "Pensamento Clean", year: "2022",
+    YoutubeLink: "https://www.youtube.com/watch?v=bDk6q4219mw",
     SpotifyLink: "https://open.spotify.com/track/5f84wLErw3TjcsZE0bTHs8?si=c48aeba37a8948f9",
-    ArtistInsta: "htttps://www.instagram.com/ricardoventuras"
+    ArtistInsta: "https://www.instagram.com/raptil_2560/"
   },
 
   {
-    urlImage: "./img/Works/artwork_lowkey.jpg", artistName: "Ricko Sicko", songName: "Sacrifícios", year: "2021",
-    YoutubeLink: "https://www.youtube.com/watch?v=FKZThNEChyo",
-    SpotifyLink: "https://open.spotify.com/track/2T3c9GztOwjOgo5io1qyVZ?si=7ca31d7b3f8a4cb0",
-    ArtistInsta: "htttps://www.instagram.com/ricardoventuras"
+    key: 3, urlImage: "./img/Works/artwork_Sacrificios.jpeg", artistName: "Ricko Sicko", songName: "Sacrifícios", year: "2021",
+    YoutubeLink: "https://www.youtube.com/watch?v=zKlHUYGG3qc",
+    SpotifyLink: "https://open.spotify.com/track/7FxLDllwOFxDYvckxKZb9S?si=d7559e5ed17e4d0e&nd=1",
+    ArtistInsta: "https://www.instagram.com/ricardoventuras/"
   }
 ];
 
@@ -94,8 +96,93 @@ const options = {
 
 export default function Index() {
 
-  useEffect(() => {
+  
+  const { scrollYProgress } = useViewportScroll();
+  const {ref, inView} = useInView({
+    threshold: 0.4
+  }); 
+  // const {ref2, inView2} = useInView({
+  //   threshold: 0.5
+  // });
+  const animation  = useAnimation();
+  const animationWorks = useAnimation();
+  // const animationReverse  = useAnimation();
+
+  useEffect(()=> {
+    //when ref object is inView, inView returns true and useEffect code runs
+    animation.start({
+      x:0,
+      y:0,
+      transition:{
+        type: 'spring', duration: 2, bounce: 0.3
+      }
+    });
+
+    if ( inView ) {
+      animation.start({
+        x:0,
+        y:0,
+        transition:{
+          type: 'spring', duration: 2, bounce: 0.3
+        }
+      });
+      
+    }
+      
+    if ( !inView){
+       animation.start({
+         x: '100vw',
+         y: '0vh',
+         transition:{
+           type: 'spring', duration: 2, bounce: 0.3
+         }
+       });
+       
+      
+    }
     
+
+  }, [inView]);
+  
+  // useEffect(()=> {
+  //   //when ref object is inView, inView returns true and useEffect code runs
+
+  //   animationWorks.start({
+  //     x: 0,
+  //     y: 0,
+  //     transition:{
+  //       type: 'spring', duration: 2, bounce: 0.3
+  //     }
+  //   });
+
+  //   if ( inView ) {
+      
+  //     animationWorks.start({
+  //       x: 0,
+  //       y: '0vh',
+  //       transition:{
+  //         type: 'spring', duration: 2, bounce: 0.3
+  //       }
+  //     });
+  //   }
+      
+  //   if ( !inView){
+       
+  //     animationWorks.start({
+  //       x: '100vw',
+  //       y: '0vh',
+  //       transition:{
+  //         type: 'spring', duration: 2, bounce: 0.3
+  //       }
+  //     });
+  //   }
+    
+
+  // }, [inView]);
+
+  useEffect(() => {
+
+
     // Client-side-only code
     window.addEventListener('scroll', (e) => {
       const nav = document.querySelector('#idNavHeader');
@@ -110,41 +197,61 @@ export default function Index() {
     });
   });
 
+  
   return (
     <>
       <IndexNavbar fixed />
+      
+      {/* <motion.path
+      d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
+      style={{ pathLength: scrollYProgress }}
+      /> */}
+
 
       <AliceCarousel autoPlay autoPlayInterval="1500" autoHeight="true" touchTracking="true" disableButtonsControls="true" className="classAliceCarousel">
         
         {imagesCarousel.map((e, key) =>
           <div key={key} className=" w-full  flex justify-center">
-            <img key={key} src={e.url} alt="image_{e.url}" />
-            <div key={key} className="w-full  mb-2 text-center centerTextOverImage">
-              <h2 key={key} className=" mx-auto text-5xl text-white border-solid border-b-6 pb-4 font-bold text-center px-6 leading-4">
+            <img  src={e.url} alt="image_{e.url}" />
+            <div  className="w-full  mb-2 text-center centerTextOverImage">
+              <h2  className=" mx-auto text-5xl text-white border-solid border-b-6 pb-4 font-bold text-center px-6 leading-4">
                 {e.title.toUpperCase()}
               </h2>
-              <p key={key} className="text-xl text-white px-6 leading-4 mb-6">
+              <p className="text-xl text-white px-6 leading-4 mb-6">
                 {e.subText}
               </p>
-              <a key={key} href={e.btnUrl} className="a_btn leading-20">{e.btnText}</a>
+              <button className="btnTypeForm leading-20" data-tf-popup="V1X1ud9P" data-tf-iframe-props="title=Booking Form Template (Longrun)" data-tf-medium="snippet" >
+                <p className="leading-normal">
+                  {e.btnText}
+                </p>
+              </button>
+              
+                <script src="//embed.typeform.com/next/embed.js"></script>
             </div>
           </div>
         )}
 
       </ AliceCarousel>
       
+
       <div className=" w-full justify-center px-6  bg-black topOverSlider">
-        <div className="w-full md:w-full flex flex-wrap justify-left">
+        <div 
+        ref={ref} 
+        className="w-full md:w-full flex flex-wrap justify-left z-20">
           
           {cardsConst.map((e, key) =>
-            <div key={key} className="w-1/3 mb-10 px-4 relative divCards cardsServices">
-              <a key={key} href={e.url}>
-                <img key={key} src={e.urlImage} alt={e.alt} />
+            <motion.div 
+            key={key} 
+            className="w-1/3 mb-10 px-4 relative divCards cardsServices z-20"
+            animate={animation}
+            >
+              <a  href={e.url}>
+                <img src={e.urlImage} alt={e.alt} />
               </a>
-              <a key={key} href={e.url} className="justify-center">
-                <h5 key={key} className="mb-2 p-2  bg-black  border centerTextOverImage text-2xl font-bold tracking-tight text-white dark:text-white ">{e.text}</h5>
+              <a  href={e.url} className="justify-center">
+                <h5  className="mb-2 p-2  bg-black  border centerTextOverImage text-2xl font-bold tracking-tight text-white dark:text-white ">{e.text}</h5>
               </a>
-            </div>)}
+            </motion.div>)}
      
         </div>
       </div>
@@ -154,11 +261,11 @@ export default function Index() {
 
         {welcomeTo.map((e, key) =>
           <div key={key} className="w-full md:w-full flex fullwidthTitle justify-center px-6 ">
-            <div key={key} className=" mb-2 w-1/3 sm:w-full ">
-              <h2 key={key} className="text-5xl text-white font-bold text-right title px-6 leading-4"> WELCOME <br /> TO OUR <br /> STUDIO  </h2>
+            <div className=" mb-2 w-1/3 sm:w-full ">
+              <h2  className="text-5xl text-white font-bold text-right title px-6 leading-4"> BEM-VINDOS <br /> AO NOSSO <br /> ESTÚDIO  </h2>
             </div>
-            <div key={key} className=" w-2/3 sm:w-full  justify-center px-mb-2 align-self-center ">
-              <p key={key} className="text-xl text-white px-6 leading-4">{e.textContent}</p>
+            <div className=" w-2/3 sm:w-full  justify-center px-mb-2 align-self-center ">
+              <p className="text-xl text-white px-6 leading-4">{e.textContent}</p>
             </div>
           </div>
         )}
@@ -169,11 +276,11 @@ export default function Index() {
 
         {studios.map((e, key) =>
           <div key={key} className=" w-full md:w-full flex justify-center px-6">
-            <div key={key} className="w-full sm:w-full mb-2 text-center">
-              <h2 key={key} className=" text-5xl width_fit mx-auto text-white border-solid border-b-6 pb-2 font-bold text-center px-6 leading-4">
+            <div  className="w-full sm:w-full mb-2 text-center">
+              <h2  className=" text-5xl width_fit mx-auto text-white border-solid border-b-6 pb-2 font-bold text-center px-6 leading-4">
                 {e.heading.toUpperCase()}
               </h2>
-              <p key={key} className="text-xl text-white px-6 leading-4 mb-6">
+              <p  className="text-xl text-white px-6 leading-4 mb-6">
                 {e.textContent}
               </p>
               <button className="btnTypeForm leading-20" data-tf-popup="V1X1ud9P" data-tf-iframe-props="title=Booking Form Template (Longrun)" data-tf-medium="snippet" >
@@ -181,6 +288,7 @@ export default function Index() {
                   {e.btnText}
                 </p>
               </button>
+              
                 <script src="//embed.typeform.com/next/embed.js"></script>
             </div>
           </div>
@@ -191,18 +299,19 @@ export default function Index() {
       <section className="pb-20 pt-20 relative bg-black">
         <div className=" w-full md:w-full flex fullwidthTitle justify-center px-6 mb-6">
           <div className="  w-1/3 sm:w-full mb-2">
-            <h2 className="text-5xl text-white font-bold text-right title px-6 leading-4"> OS NOSSOS <br />TRABALHOS </h2>
+            <h2 className="text-5xl text-white font-bold text-right title px-6 leading-4"> OS NOSSOS <br/> ARTISTAS</h2>
           </div>
           <div className="w-2/3 flex mb-2 items-center align-self-center">
-            <p className="text-xl text-white px-6 leading-4 ">During the last few years, we’ve met several great people. Here’s a list to name a few.</p>
+            <p className="text-xl text-white px-6 leading-4 ">Aqui está uma lista de alguns artistas com quem trabalhamos de momento. Esperemos aumentar em breve.</p>
           </div>
         </div>
         <div className=" w-full md:w-full flex flex-wrap justify-center artistList">
-          <div className="w-full md:w-full flex flex-wrap justify-left ">
+          <div className="w-full md:w-full flex flex-wrap justify-left p-4 pb-0">
             
             {workingArtists.map((e, key) =>
-              <div key={key} className="w-1/3 md:w-1/3 text-left mb-2 pl-2 ">
-                <p key={key} className="text-white">{e.artistName}</p>
+            
+              <div key={key} className="w-1/2 md:w-1/2 text-center mb-2 pl-2 ">
+                <p className="text-white">{e.artistName}</p>
               </div>
             )}
 
@@ -217,24 +326,28 @@ export default function Index() {
             <h2 className="text-5xl text-black font-bold title text-right px-6 leading-4"> TRABALHOS <br /> REALIZADOS </h2>
           </div>
           <div className=" w-2/3 sm:w-full mb-2 items-center align-self-center">
-            <p className="text-xl text-black px-6 leading-4">During the last few years, we’ve met several great people. Here’s a list to name a few.</p>
+            <p className="text-xl text-black px-6 leading-4">Estes são alguns dos nossos lançamentos mais recentes. Sinta-se à vontade para nos contactar em caso de dúvidas.</p>
           </div>
         </div>
         <div className=" w-full justify-center px-6 container mx-auto">
-          <div className="w-full md:w-full flex flex-wrap justify-left">
+          <div  className="w-full md:w-full flex flex-wrap justify-left">
             
             {featuredWorks.map((e, key) =>
-              <div key={key} className="w-1/3 md:w-1/3 text-left mb-6 featuredWorksDiv ">
-                <div key={key} className="featuredWorks_uppertext p-2">
-                  <h2 key={key} className="text-white"> {e.songName} </h2>
-                  <h4 key={key} className="text-white"> por {e.artistName} </h4>
-                  <h4 key={key} className="text-white">{e.year}</h4>
+              <div 
+              key={key} 
+              className="w-1/3 md:w-1/3 text-left mb-6 featuredWorksDiv "
+              
+              >
+                <div  className="featuredWorks_uppertext p-2">
+                  <h2 className="text-white"> {e.songName} </h2>
+                  <h4 className="text-white"> por {e.artistName} </h4>
+                  <h4  className="text-white">{e.year}</h4>
                 </div>
-                <img key={key} className="p-2 featuredWorks" src={e.urlImage} alt={e.artistName + e.songName} />
-                <div key={key} className="featuredWorks_bottomtext p-2">
-                  <a key={key} href={e.YoutubeLink}><FaYoutube /></a>
-                  <a key={key} href={e.SpotifyLink}><FaSpotify /></a>
-                  <a key={key} href={e.ArtistInsta}><FaInstagram /></a>
+                <img  className="p-2 featuredWorks" src={e.urlImage} alt={e.artistName + e.songName} />
+                <div  className="featuredWorks_bottomtext p-2">
+                  <a  href={e.YoutubeLink}><FaYoutube /></a>
+                  <a  href={e.SpotifyLink}><FaSpotify /></a>
+                  <a  href={e.ArtistInsta}><FaInstagram /></a>
                 </div>
               </div>
             )}
