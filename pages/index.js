@@ -105,13 +105,12 @@ export default function Index() {
   //   threshold: 0.5
   // });
   const animation  = useAnimation();
-  const animationWorks = useAnimation();
-  // const animationReverse  = useAnimation();
+  // const animationWorks = useAnimation();
 
   useEffect(()=> {
     //when ref object is inView, inView returns true and useEffect code runs
     animation.start({
-      x:0,
+      x:'-100vw',
       y:0,
       transition:{
         type: 'spring', duration: 2, bounce: 0.3
