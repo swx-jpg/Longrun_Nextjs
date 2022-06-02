@@ -279,3 +279,7 @@ footer a svg {
     line-height: 25px;
     margin-left: 15px;
 }
+.sliderMaxHeight{
+    max-height: 600px;
+    background-size: cover;
+}

@@ -211,7 +211,7 @@ export default function Index() {
       <AliceCarousel autoPlay autoPlayInterval="1500" autoHeight="true" touchTracking="true" disableButtonsControls="true" className="classAliceCarousel">
         
         {imagesCarousel.map((e, key) =>
-          <div key={key} className=" w-full  flex justify-center">
+          <div key={key} className=" w-full  flex justify-center sliderMaxHeight">
             <img  src={e.url} alt="image_{e.url}" />
             <div  className="w-full  mb-2 text-center centerTextOverImage">
               <h2  className=" mx-auto text-5xl text-white border-solid border-b-6 pb-4 font-bold text-center px-6 leading-4">
@@ -343,7 +343,7 @@ export default function Index() {
                   <h4 className="text-white"> por {e.artistName} </h4>
                   <h4  className="text-white">{e.year}</h4>
                 </div>
-                <img  className="p-2 featuredWorks" src={e.urlImage} alt={e.artistName + e.songName} />
+                <img  className="w-full p-2 featuredWorks" src={e.urlImage} alt={e.artistName + e.songName} />
                 <div  className="featuredWorks_bottomtext p-2">
                   <a  href={e.YoutubeLink}><FaYoutube /></a>
                   <a  href={e.SpotifyLink}><FaSpotify /></a>
