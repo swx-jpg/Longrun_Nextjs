@@ -8,12 +8,7 @@ const imagesCarousel = [
   
   ];
 
-const options = {
-  items: 1,
-  nav: true,
-  rewind: true,
-  autoplay: true
-};
+
 //projects 
 //https://medium.com/how-to-react/create-beautiful-image-sliders-carousels-in-react-using-react-alice-carousel-395d8ae9310c
 
