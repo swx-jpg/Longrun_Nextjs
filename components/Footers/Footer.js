@@ -31,7 +31,7 @@ export default function Footer() {
 
 
               <h5 className="text-lg mt-0 mb-2 text-white px-4">
-                Encontre-nos em qualquer destas plataformas, nós respondemos em 1-2 dias úteis.
+                Encontre-nos em qualquer destas plataformas, respondemos o mais breve possível.
               </h5>
               <div className="mt-6 lg:mb-0 mb-6 inline-flex ">
                
@@ -40,7 +40,7 @@ export default function Footer() {
                 <a href="https://open.spotify.com/user/31f7zklukv6vnmejbyyeeellrzba?si=c9175162fb9047b9"><FaSpotify /></a>
                 <a href="https://www.instagram.com/longrunmusic/"><FaInstagram /></a>
                 <p className="text-white font-bold mx-10px pt-10px">ou</p>
-                <a data-tf-popup="V1X1ud9P" className="aTypeFormFooter text-3xl  font-semibold text-white" data-tf-iframe-props="title=Booking Form Template (Longrun)" data-tf-medium="snippet" >Clique aqui</a><script src="//embed.typeform.com/next/embed.js"></script>
+                <a data-tf-popup="V1X1ud9P" className="aTypeFormFooter text-lg  font-semibold text-white" data-tf-iframe-props="title=Booking Form Template (Longrun)" data-tf-medium="snippet" >Clique aqui</a><script src="//embed.typeform.com/next/embed.js"></script>
 
               </div>
             </div>

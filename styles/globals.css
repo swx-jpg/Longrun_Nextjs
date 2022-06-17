@@ -272,14 +272,42 @@ footer a svg {
     cursor: pointer;
     text-decoration: none !important;
 }
+
 .aTypeFormFooter {
     color: #fff;
     text-decoration: underline;
     cursor: pointer;
-    line-height: 25px;
+    line-height: 38px;
     margin-left: 15px;
 }
-.sliderMaxHeight{
+
+.sliderMaxHeight {
     max-height: 600px;
     background-size: cover;
+}
+
+.progress-icon {
+    position: fixed;
+    bottom: 60px;
+    left: 20px;
+    width: 70px;
+    background-color: #000000a8;
+    border-radius: 50px;
+    height: 70px;
+    z-index: 100;
+}
+a:hover{
+    transform: scale(1.2);
+    transition: .25s ease-in-out;
+
+}
+a{
+    transition: .25s ease-in-out;
+}
+#idNavHeader a:hover{
+    transform: scale(1) !important;
+
+}
+.limitedWorkElements{
+    
 }

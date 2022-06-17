@@ -1,31 +1,114 @@
-import React from "react";
+import {React, useEffect} from "react";
+import { motion, useAnimation } from "framer-motion";
+import {useInView} from 'react-intersection-observer';
+
+
 import { FaInstagram, FaYoutube, FaSpotify } from 'react-icons/fa';
 
 const featuredWorks = [
     //image resolution 1300x1300 ou 3000x3000
     {
-      key: 1, urlImage: "./img/Works/artwork_lowkey.jpg", artistName: "Ricko Sicko", songName: "LOWKEY", year: "2022",
+      key: 1, urlImage: "./img/Works/artwork_lowkey.jpg", 
+      artistName: "Ricko Sicko", songName: "LOWKEY", year: "2022",
       YoutubeLink: "https://www.youtube.com/watch?v=FKZThNEChyo",
       SpotifyLink: "https://open.spotify.com/track/2T3c9GztOwjOgo5io1qyVZ?si=7ca31d7b3f8a4cb0",
       ArtistInsta: "https://www.instagram.com/ricardoventuras/"
     },
   
     {
-      key: 2, urlImage: "./img/Works/artwork_pensamentoClean.png", artistName: "Raptil", songName: "Pensamento Clean", year: "2022",
+      key: 2, urlImage: "./img/Works/artwork_pensamentoClean.png",
+      artistName: "Raptil", songName: "Pensamento Clean", year: "2022",
       YoutubeLink: "https://www.youtube.com/watch?v=bDk6q4219mw",
       SpotifyLink: "https://open.spotify.com/track/5f84wLErw3TjcsZE0bTHs8?si=c48aeba37a8948f9",
       ArtistInsta: "https://www.instagram.com/raptil_2560/"
     },
   
     {
-      key: 3, urlImage: "./img/Works/artwork_Sacrificios.jpeg", artistName: "Ricko Sicko", songName: "Sacrifícios", year: "2021",
+      key: 3, urlImage: "./img/Works/artwork_Sacrificios.jpeg",
+      artistName: "Ricko Sicko", songName: "Sacrifícios", year: "2021",
       YoutubeLink: "https://www.youtube.com/watch?v=zKlHUYGG3qc",
       SpotifyLink: "https://open.spotify.com/track/7FxLDllwOFxDYvckxKZb9S?si=d7559e5ed17e4d0e&nd=1",
       ArtistInsta: "https://www.instagram.com/ricardoventuras/"
+    },
+
+    {
+      key: 4, urlImage: "./img/Works/artwork_lowkey.jpg", 
+      artistName: "Ricko Sicko", songName: "LOWKEY", year: "2022",
+      YoutubeLink: "https://www.youtube.com/watch?v=FKZThNEChyo",
+      SpotifyLink: "https://open.spotify.com/track/2T3c9GztOwjOgo5io1qyVZ?si=7ca31d7b3f8a4cb0",
+      ArtistInsta: "https://www.instagram.com/ricardoventuras/"
+    },
+  
+    {
+      key: 5, urlImage: "./img/Works/artwork_pensamentoClean.png",
+      artistName: "Raptil", songName: "Pensamento Clean", year: "2022",
+      YoutubeLink: "https://www.youtube.com/watch?v=bDk6q4219mw",
+      SpotifyLink: "https://open.spotify.com/track/5f84wLErw3TjcsZE0bTHs8?si=c48aeba37a8948f9",
+      ArtistInsta: "https://www.instagram.com/raptil_2560/"
+    },
+
+    {
+      key: 6, urlImage: "./img/Works/artwork_lowkey.jpg", 
+      artistName: "Ricko Sicko", songName: "LOWKEY", year: "2022",
+      YoutubeLink: "https://www.youtube.com/watch?v=FKZThNEChyo",
+      SpotifyLink: "https://open.spotify.com/track/2T3c9GztOwjOgo5io1qyVZ?si=7ca31d7b3f8a4cb0",
+      ArtistInsta: "https://www.instagram.com/ricardoventuras/"
     }
+
   ];
 
 export default function Works() {
+      const { ref, inView } = useInView({
+        threshold: 0.4
+    });
+    const animation  = useAnimation();
+
+    useEffect(() => {
+      //when ref object is inView, inView returns true and useEffect code runs
+      // TODO: está a passar duas vezes no onClick
+      if ( document.getElementById("idBtnWorks") != undefined ) {
+        document.getElementById("idBtnWorks").onclick = function() {
+          if ( sliceNumber == 3){
+            sliceNumber = featuredWorks.length;
+            document.getElementById("idBtnWorks").getElementsByTagName("p")[0].innerHTML = "Ver menos";
+          }else{
+            sliceNumber = 3;
+            document.getElementById("idBtnWorks").getElementsByTagName("p")[0].innerHTML = "Ver mais";
+          }
+        }
+        }
+      
+        
+      animation.start({
+          x: 0,
+          y: '100vh',
+          transition: {
+              type: 'spring', duration: 2, bounce: 0.3
+          }
+      });
+
+      if (inView) {
+          animation.start({
+              x: 0,
+              y: 0,
+              transition: {
+                  type: 'spring', duration: 2, bounce: 0.3
+              }
+          });
+      }
+
+      if (!inView) {
+          animation.start({
+              x: 0,
+              y: '100vh',
+              transition: {
+                  type: 'spring', duration: 2, bounce: 0.3
+              }
+          });
+      }
+  }, [inView]);
+  
+
     return (
         <section className="pb-20 pt-20 relative bg-white">
         <div className=" w-full sm:w-full justify-center flex fullwidthTitle px-6 mb-6">
@@ -37,13 +120,13 @@ export default function Works() {
           </div>
         </div>
         <div className=" w-full justify-center px-6 container mx-auto">
-          <div  className="w-full md:w-full flex flex-wrap justify-left">
+          <div  ref={ref} className="w-full md:w-full flex flex-wrap justify-left limitedWorkElements">
             
             {featuredWorks.map((e, key) =>
-              <div 
+              <motion.div 
               key={key} 
+              animate={animation}
               className="w-1/3 md:w-1/3 text-left mb-6 featuredWorksDiv "
-              
               >
                 <div  className="featuredWorks_uppertext p-2">
                   <h2 className="text-white"> {e.songName} </h2>
@@ -56,8 +139,10 @@ export default function Works() {
                   <a  href={e.SpotifyLink}><FaSpotify /></a>
                   <a  href={e.ArtistInsta}><FaInstagram /></a>
                 </div>
-              </div>
+              </motion.div>
             )}
+
+           
 
           </div>
         </div>

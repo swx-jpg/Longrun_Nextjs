@@ -1,5 +1,5 @@
 import {React, useEffect} from "react";
-import { motion, useViewportScroll, useAnimation } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
 import {useInView} from 'react-intersection-observer';
 
 
@@ -46,8 +46,6 @@ export default function CardsAfterSlider() {
                 }
             });
         }
-
-
     }, [inView]);
 
     return (
