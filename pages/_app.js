@@ -9,6 +9,9 @@ import PageChange from "components/PageChange/PageChange.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "styles/tailwind.css";
 import "styles/globals.css";
+import ArtistSingle from "components/MainPage/ArtistSingle.js";
+// import { BrowserRouter as RouterDom, Switch, Route} from "react-router-dom";
+
 
 
 Router.events.on("routeChangeStart", (url) => {
@@ -72,13 +75,20 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title> Website by SWX</title>
+          <title> Longrun Music</title>
           {/* <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> */}
         </Head>
         <Layout>
           <Component {...pageProps} />
         </Layout>
+        {/* <RouterDom>
+          <Switch>
+            <Route exact path="/artistSingle" component={ArtistSingle}></Route>
+            <Route path="*" component={() => <h2>404 Not Found </h2>} />
+          </Switch>
+        </RouterDom> */}
       </React.Fragment>
+
     );
   }
 }

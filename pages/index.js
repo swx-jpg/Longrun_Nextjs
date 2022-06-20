@@ -9,10 +9,12 @@ import CardsAfterSlider from "components/MainPage/CardsAfterSlider.js";
 import WelcomeToSection from "components/MainPage/WelcomeToSection.js";
 import WorkingArtists from "components/MainPage/WorkingArtists.js";
 import Works from "components/MainPage/Works.js";
-import Works2 from "components/MainPage/Works2.js";
 import Footer from "components/Footers/Footer.js";
 
 import StudioA from "components/MainPage/StudioA";
+
+
+
 
 
 export default function Index() {
@@ -42,9 +44,11 @@ export default function Index() {
       <WelcomeToSection />
       <StudioA />
       <WorkingArtists />
-      <Works2 />
+      <Works />
       <CircleIndicator />
       <Footer />
+
+      
     </>
   );
 }
